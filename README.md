@@ -1,11 +1,14 @@
 # Engine
 
-<h2>Basic class</h2>
+<h2>Import</h2>
 
 ```python
 from Engine import *
+```
 
+<h2>Basic class</h2>
 
+```python
 class Main(WindowLoop):
     def __init__(self) -> None:
         super().__init__(Vec2(1000, 600), 165)
