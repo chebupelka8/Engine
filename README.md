@@ -21,7 +21,7 @@ class Main(WindowLoop):
             super().update_events(__event)
     
     def main(self) -> None:
-        while True:
+        while True: # mainloop
             self.update_display()
 
 
