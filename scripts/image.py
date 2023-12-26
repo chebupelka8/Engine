@@ -139,6 +139,12 @@ class ImageEditor:
         cls.__verify_image(__image)
 
         return Image(__image.image.subsurface(x, y, width, height))
+    
+    @classmethod
+    def blur(cls, __image: Image, radius: int) -> Image:
+        cls.__verify_image(__image)
+
+        return Image(pygame.transform.gaussian_blur(__image.image, radius))
 
 class AnimationEditor:
 
