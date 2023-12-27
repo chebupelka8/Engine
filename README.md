@@ -6,6 +6,23 @@
 from Engine import *
 ```
 
+<h2>How to create window</h2>
+
+```python
+from Engine import *
+
+
+app = WindowLoop(Vec2(1000, 600))
+
+def main():
+    while True: # mainloop
+        app.update_display()
+
+
+if __name__ == "__main__":
+    main()
+```
+
 <h2>Basic class</h2>
 
 ```python
