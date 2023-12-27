@@ -2,7 +2,7 @@ import pygame
 from typing import Any
 import os
 from Engine.scripts.exceptions import ImageLoadError
-from Engine.scripts.vec import Vec2
+from Engine.scripts.math import Vec2
 
 
 class Image:
@@ -145,6 +145,7 @@ class ImageEditor:
         cls.__verify_image(__image)
 
         return Image(pygame.transform.gaussian_blur(__image.image, radius))
+
 
 class AnimationEditor:
 

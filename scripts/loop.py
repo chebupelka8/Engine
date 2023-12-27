@@ -1,6 +1,6 @@
 import pygame, sys
 from pygame.locals import *
-from Engine.scripts.vec import Vec2
+from Engine.scripts.math import Vec2
 from Engine.scripts.image import Image
 
 
@@ -41,5 +41,6 @@ class WindowLoop:
 
         for event in pygame.event.get():
             self.update_events(event)
-    
-
+        
+        # self.__events.clear()
+            
