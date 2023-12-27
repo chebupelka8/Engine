@@ -2,7 +2,7 @@ import pygame
 from typing import Any
 import os
 from Engine.scripts.exceptions import ImageLoadError
-from Engine.scripts.math import Vec2
+from Engine.scripts.math import Vec2, Size
 
 
 class Image:

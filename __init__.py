@@ -9,5 +9,6 @@ from Engine.scripts.image import *
 from Engine.scripts.math import *
 from Engine.scripts.loop import *
 from Engine.scripts.event import *
+from Engine.scripts.group import SpriteGroup
 
 print("Welcome! (Engine: v0.1)")

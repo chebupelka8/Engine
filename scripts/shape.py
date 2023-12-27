@@ -1,6 +1,5 @@
 import pygame
 from Engine.scripts.math import Vec2, Size
-from Engine.scripts.collision import Collider
 
 
 class RectangleShape:
