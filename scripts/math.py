@@ -1,3 +1,6 @@
+from Engine.scripts.exceptions import NoChangeableError
+
+
 class Vec2:
     def __init__(self, x: int | float, y: int | float) -> None:
         self.__verify(x, y)
@@ -54,6 +57,35 @@ class Vec2:
 
         return Vec2(self.__x + __other.x, self.__y + __other.y)
 
+class PrivateVec2(Vec2):
+    def __init__(self, x: int | float, y: int | float) -> None:
+        super().__init__(x, y)
+
+        self.__x = x
+        self.__y = y
+    
+    @property
+    def x(self) -> int | float:
+        return self.__x
+    
+    @x.setter
+    def x(self, __value: int | float) -> None:
+        raise NoChangeableError("This class is not changeable")
+    
+    @property
+    def y(self) -> int | float:
+        return self.__y
+    
+    @y.setter
+    def y(self, __value: int | float) -> None:
+        raise NoChangeableError("This class is not changeable")
+
+    def __setitem__(self, __index, __value) -> None:
+        raise NoChangeableError("This class is not changeable")
+    
+    def __add__( self, __other) -> None:
+        raise NoChangeableError("This class is not changeable")        
+
 class Size:
     def __init__(self, width: int, height: int) -> None:
         self.__verify(width, height)
@@ -68,3 +100,7 @@ class Size:
                 ...
             case _:
                 raise ValueError("Arguments 'width' and 'height' should be 'int'")
+    
+    @property
+    def wh(self) -> list:
+        return [self.__width, self.__height]

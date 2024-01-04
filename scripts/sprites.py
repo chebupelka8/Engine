@@ -2,8 +2,6 @@ import pygame
 from Engine.scripts.image import Image, Animation
 from Engine.scripts.math import Vec2
 from Engine.scripts.shape import RectangleShape, CollisionRectangle
-from Engine.scripts.collision import Collider
-from Engine.scripts.group import SpriteGroup
 
 
 class StaticSprite(CollisionRectangle):
@@ -13,9 +11,18 @@ class StaticSprite(CollisionRectangle):
         self.__image = image
     
     def draw(self, __display: pygame.Surface) -> None:
-        
         self.update()
+        
         __display.blit(self.__image.image, self.rectangle)
+        # pygame.draw.rect(__display, "red", self.rectangle, 1)
+    
+    @property
+    def image(self) -> Image:
+        return self.__image
+
+    @image.setter
+    def image(self, __image: Image) -> None:
+        self.__image = __image
         
     def __repr__(self) -> str:
         return f"StaticSprite(position={self.position}, image={self.__image})"
@@ -35,15 +42,24 @@ class AnimatedSprite(CollisionRectangle):
         if not isinstance(__animation, Animation): raise TypeError("Argument should be an instanse of the 'Animtion' class")
     
     def draw(self, __display: pygame.Surface) -> None:
-        self.size = self.__animation[int(self.__frame)].size
+        self.rectangle.size = self.__animation[int(self.__frame)].size.xy
         self.update()
 
-        __display.blit(self.__animation[int(self.__frame)].image, self.position.xy)
+        __display.blit(self.__animation[int(self.__frame)].image, self.rectangle)
+        # pygame.draw.rect(__display, "red", self.rectangle, 1)
     
     def animating(self, __speed: int | float) -> None:
         if not self.__is_freezed:
             self.__frame += __speed
             if self.__frame >= self.__animation.count(): self.__frame = 0
+    
+    @property
+    def animation(self) -> Animation:
+        return self.__animation
+    
+    @animation.setter
+    def animation(self, __animation: Animation) -> None:
+        self.__animation = __animation
     
     def freeze(self) -> None:
         self.__is_freezed = True

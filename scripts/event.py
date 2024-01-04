@@ -19,7 +19,6 @@ class Key:
 
     def __del__(self):
         keyboard.unhook_all()  # Заменено на удаление всех обратных вызовов
-
     # def __del__(self):
     #     keyboard.remove_hook(handle_key_press)
 

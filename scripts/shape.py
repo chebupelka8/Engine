@@ -1,5 +1,5 @@
 import pygame
-from Engine.scripts.math import Vec2, Size
+from Engine.scripts.math import Vec2, Size, PrivateVec2
 from Engine.scripts.collision import Collider
 from Engine.scripts.group import SpriteGroup
 
@@ -22,8 +22,8 @@ class RectangleShape:
         return self.__rectangle
     
     @property
-    def position(self) -> Vec2:
-        return Vec2(self.__rectangle.x, self.__rectangle.y)
+    def position(self) -> PrivateVec2:
+        return PrivateVec2(self.__rectangle.x, self.__rectangle.y)
 
 class CollisionRectangle(RectangleShape):
     def __init__(self, position: Vec2, width: int, height: int) -> None:
@@ -57,23 +57,32 @@ class CollisionRectangle(RectangleShape):
         self.rectangle.x += self.movement.x
         
         if self.__collide_groups != None:
-            for sprite in Collider.group_collider(self, *self.__collide_groups):
+            collisions = Collider.group_collider(self, *self.__collide_groups)
+
+            for sprite in collisions:
                 if self.movement.x > 0:
                     self.rectangle.right = sprite.rectangle.left
-                    # self.__collide_side["right"] = True
+                    self.__collide_side["right"] = True
                 if self.movement.x < 0:
                     self.rectangle.left = sprite.rectangle.right
-                    # self.__collide_side["left"] = True
+                    self.__collide_side["left"] = True
+            
+            if len(collisions) == 0:
+                self.__collide_side["right"] = self.__collide_side["left"] = False
         
         # vertical
         self.rectangle.y += self.movement.y
 
         if self.__collide_groups != None:
-            for sprite in Collider.group_collider(self, *self.__collide_groups):
+            collisions = Collider.group_collider(self, *self.__collide_groups)
+
+            for sprite in collisions:
                 if self.movement.y > 0:
                     self.rectangle.bottom = sprite.rectangle.top
-                    # self.__collide_side["bottom"] = True
+                    self.__collide_side["bottom"] = True
                 if self.movement.y < 0:
                     self.rectangle.top = sprite.rectangle.bottom
-                    # self.__collide_side["top"] = True
-        
+                    self.__collide_side["top"] = True
+
+            if len(collisions) == 0:
+                self.__collide_side["top"] = self.__collide_side["bottom"] = False
