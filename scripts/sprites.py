@@ -2,6 +2,7 @@ import pygame
 from Engine.scripts.image import Image, Animation
 from Engine.scripts.math import Vec2
 from Engine.scripts.shape import RectangleShape, CollisionRectangle
+from Engine.scripts.coordinated import Coordinated
 
 
 class StaticSprite(CollisionRectangle):
@@ -69,3 +70,26 @@ class AnimatedSprite(CollisionRectangle):
     
     def __repr__(self) -> str:
         return f"AnimatedSprite(position={self.position}, animation={self.__animation}, frame={int(self.__frame)})"
+
+class AbsoluteStaticSprite(Coordinated):
+    def __init__(self, position: Vec2, image: Image) -> None:
+        super().__init__(position)
+
+        self.__image = image
+    
+    def draw(self, __display: pygame.Surface) -> None:
+        
+        __display.blit(self.__image.image, (self.position.x, self.position.y))
+        # pygame.draw.rect(__display, "red", self.rectangle, 1)
+    
+    @property
+    def image(self) -> Image:
+        return self.__image
+
+    @image.setter
+    def image(self, __image: Image) -> None:
+        self.__image = __image
+        
+    def __repr__(self) -> str:
+        return f"AbsoluteStaticSprite(position={self.position}, image={self.__image})"
+    
