@@ -57,6 +57,11 @@ class Vec2:
 
         return Vec2(self.__x + __other.x, self.__y + __other.y)
 
+    def __mul__(self, __other):
+        if not isinstance(__other, Vec2): raise TypeError("Argument should be 'Vec2'")
+
+        return Vec2(self.__x * __other.x, self.__y * __other.y)
+
 class PrivateVec2(Vec2):
     def __init__(self, x: int | float, y: int | float) -> None:
         super().__init__(x, y)
