@@ -1,5 +1,5 @@
 import pygame
-from Engine.scripts.math import Vec2, Size, PrivateVec2
+from Engine.scripts.math import Vec2, PrivateVec2
 from Engine.scripts.collision import Collider
 from Engine.scripts.group import SpriteGroup
 
@@ -7,14 +7,14 @@ from Engine.scripts.group import SpriteGroup
 class RectangleShape:
     def __init__(self, position: Vec2, width: int, height: int) -> None:
         self.__rectangle = pygame.Rect(position.x, position.y, width, height)
-        self.__size = Size(width, height)
+        self.__size = Vec2(width, height)
     
     @property
-    def size(self) -> Size:
+    def size(self) -> Vec2:
         return self.__size
     
     @size.setter
-    def size(self, __size: Size) -> None:
+    def size(self, __size: Vec2) -> None:
         self.__size = __size
     
     @property

@@ -89,23 +89,4 @@ class PrivateVec2(Vec2):
         raise NoChangeableError("This class is not changeable")
     
     def __add__( self, __other) -> None:
-        raise NoChangeableError("This class is not changeable")        
-
-class Size:
-    def __init__(self, width: int, height: int) -> None:
-        self.__verify(width, height)
-
-        self.__width = width
-        self.__height = height
-    
-    @staticmethod
-    def __verify(width, height) -> None:
-        match width, height:
-            case width, height if all(map(lambda a: isinstance(a, int), [width, height])):
-                ...
-            case _:
-                raise ValueError("Arguments 'width' and 'height' should be 'int'")
-    
-    @property
-    def wh(self) -> list:
-        return [self.__width, self.__height]
+        raise NoChangeableError("This class is not changeable")
