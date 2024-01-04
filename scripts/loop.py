@@ -27,6 +27,10 @@ class WindowLoop:
         return self.__display
 
     @property
+    def fps(self) -> float:
+        return self.__clock.get_fps()
+
+    @property
     def window_size(self) -> Vec2:
         return Vec2(*self.display.get_size())
     
