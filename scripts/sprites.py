@@ -83,6 +83,10 @@ class AbsoluteStaticSprite(Coordinated):
         # pygame.draw.rect(__display, "red", self.rectangle, 1)
     
     @property
+    def rectangle(self) -> pygame.Rect:
+        return pygame.Rect(self.position.x, self.position.y, self.__image.size.x, self.__image.size.y)
+    
+    @property
     def image(self) -> Image:
         return self.__image
 

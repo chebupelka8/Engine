@@ -22,6 +22,10 @@ class RectangleShape:
         return self.__rectangle
     
     @property
+    def center(self) -> PrivateVec2:
+        return PrivateVec2(self.__rectangle.centerx, self.__rectangle.centery)
+    
+    @property
     def position(self) -> PrivateVec2:
         return PrivateVec2(self.__rectangle.x, self.__rectangle.y)
 
