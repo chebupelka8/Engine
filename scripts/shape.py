@@ -16,6 +16,7 @@ class RectangleShape:
     @size.setter
     def size(self, __size: Vec2) -> None:
         self.__size = __size
+        self.__rectangle.size = (__size.xy)
     
     @property
     def rectangle(self) -> pygame.Rect:

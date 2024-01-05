@@ -25,11 +25,11 @@ class WindowLoop:
     @property
     def display(self) -> pygame.Surface:
         return self.__display
-
+    
     @property
     def fps(self) -> float:
         return self.__clock.get_fps()
-
+    
     @property
     def window_size(self) -> Vec2:
         return Vec2(*self.display.get_size())
@@ -41,6 +41,7 @@ class WindowLoop:
     @property
     def window_height(self) -> int:
         return self.display.get_size()[1]
+    
     
     def destroy(self) -> None:
         pygame.quit()

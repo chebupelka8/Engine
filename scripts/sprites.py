@@ -24,6 +24,7 @@ class StaticSprite(CollisionRectangle):
     @image.setter
     def image(self, __image: Image) -> None:
         self.__image = __image
+        self.size = __image.size
         
     def __repr__(self) -> str:
         return f"StaticSprite(position={self.position}, image={self.__image})"
