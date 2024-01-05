@@ -46,7 +46,7 @@ class Animation:
         if isinstance(__dir, str):
             return [Image(f"{__dir}/{p}").image for p in os.listdir(__dir)]
         elif all(map(lambda obj: isinstance(obj, str), __dir)):
-            return [Image(p) for p in __dir]
+            return [Image(p).image for p in __dir]
         elif all(map(lambda obj: isinstance(obj, pygame.Surface), __dir)):
             return __dir
         elif all(map(lambda obj: isinstance(obj, Image), __dir)):
