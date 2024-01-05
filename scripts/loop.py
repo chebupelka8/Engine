@@ -1,7 +1,7 @@
 import pygame, sys
 from pygame.locals import *
-from Engine.scripts.math import Vec2
-from Engine.scripts.image import Image
+from .math import Vec2
+from .image import Image
 
 
 class WindowLoop:

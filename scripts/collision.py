@@ -1,5 +1,5 @@
 import pygame
-from Engine.scripts.group import SpriteGroup
+from .group import SpriteGroup
 
 
 class Collider:

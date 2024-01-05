@@ -1,6 +1,7 @@
 import keyboard
 import threading
 
+
 class Key:
     pressed_keys = set()
     

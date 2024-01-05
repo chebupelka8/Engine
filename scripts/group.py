@@ -1,5 +1,5 @@
 import pygame
-from Engine.scripts.sprites import *
+from .sprites import *
 from typing import Any
 
 

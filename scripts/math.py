@@ -1,4 +1,4 @@
-from Engine.scripts.exceptions import NoChangeableError
+from .exceptions import NoChangeableError
 
 
 class Vec2:

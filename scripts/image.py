@@ -1,8 +1,8 @@
 import pygame
 from typing import Any
 import os
-from Engine.scripts.exceptions import ImageLoadError
-from Engine.scripts.math import Vec2
+from .exceptions import ImageLoadError
+from .math import Vec2
 
 
 class Image:

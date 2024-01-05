@@ -1,4 +1,4 @@
-from Engine.scripts.math import Vec2
+from .math import Vec2
 
 
 class Coordinated:
