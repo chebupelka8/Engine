@@ -14,4 +14,4 @@ from .scripts.event import *
 from .scripts.group import *
 from .scripts.collision import Collider
 
-print("Welcome! (Engine: v0.1)")
+print("Welcome! (Engine: alpha 0.1)")
